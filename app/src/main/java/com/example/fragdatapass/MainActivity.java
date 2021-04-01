@@ -34,14 +34,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void send2Frag(View view) {
         NewFragment newFragment = new NewFragment();
-
-        Bundle bundle = new Bundle();
         int number1= Integer.parseInt(num1.getText().toString());
         int number2= Integer.valueOf(num2.getText().toString());
-        bundle.putInt("first", number1);
-        bundle.putInt("second", number2);
 
-        newFragment.setArguments(bundle);
+//        Bundle bundle = new Bundle();
+//        bundle.putInt("first", number1);
+//        bundle.putInt("second", number2);
+//        newFragment.setArguments(bundle);
+
+        newFragment.sendData(number1, number2);
         transaction = manager.beginTransaction();
         transaction.add(R.id.container, newFragment, "newFrag");
         transaction.commit();
